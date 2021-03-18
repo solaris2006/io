@@ -37,7 +37,7 @@ public class FlfMain {
 		//create and populate FlfHeader object
 		FlfHeader header = new FlfHeader();
 		header.setHardBlank(hardBlank);
-		header.setHeight(height);;
+		header.setHeight(height);
 		header.setMaxLength(maxLength);
 		header.setCommentLines(commentLines);
 
@@ -48,7 +48,7 @@ public class FlfMain {
 		//read "lineCount" number of lines
 		//from reader and ignore the resultss
 		while (lineCount > 0){
-			System.out.println(reader.readLine());;
+			System.out.println(reader.readLine());
 			lineCount--;
 		}
 
@@ -61,6 +61,7 @@ public class FlfMain {
 
 		while (lineCount > 0){
 			lines.add(reader.readLine());
+			lineCount--;
 		}
 
 		return lines;
