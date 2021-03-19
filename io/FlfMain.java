@@ -8,18 +8,26 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sound.sampled.Line;
+
 public class FlfMain {
 
 	public static void main(String[] args) {
 		Path file = Paths.get( "/home", "cris", "code", "java", "src" , "io" , "io", "bulbhead.flf");
 		try (BufferedReader reader = Files.newBufferedReader(file)) {
 		    FlfHeader header = readHeader(reader);
-		    skipLines(reader, header.getCommentLines());
-
+		    // skipLines(reader, header.getCommentLines());
+			List lines  = readLines(reader, 30);
+			for (String line : lines){
+				System.out.println(line);
+			}
+			System.out.println(lines.getClass());
 		} catch (IOException x) {
 		    System.err.println("IOException: "+ x);
 		}
 			System.out.println(file);
+			
+			
 	}
 	
 	private static FlfHeader readHeader(BufferedReader reader) throws IOException {
